@@ -1,5 +1,6 @@
 <mat-toolbar color='primary'>Add Promo</mat-toolbar>
 <mat-card>
+  <a routerLink="/"> Volver </a>
 <div class="example-container">
     <mat-form-field>
       <input matInput placeholder="name" [(ngModel)]="promo.name">
@@ -18,7 +19,14 @@
       </mat-select>
     </mat-form-field>
 
-    <input name="myFile" type="file" [(ngModel)]="promo.promoImage">
+    <!-- <input name="myFile" type="file" [(ngModel)]="promo.promoImage"> -->
+    <!-- <input type="file" ng2FileSelect [uploader]="uploader" /> -->
+
+    <input id="cin" name="cin" type="file" (change)="fileChangeEvent($event)" placeholder="Upload a file..." multiple/>
+
+    <button type="button" class="btn btn-success btn-s" (click)="upload()">
+      <i class="glyphicon glyphicon-open-file"></i>&nbsp;Upload
+  </button>
 
     <mat-form-field>
         <mat-select placeholder="Day" [(ngModel)]="promo.day">
