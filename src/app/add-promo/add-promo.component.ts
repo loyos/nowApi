@@ -48,7 +48,7 @@ export class AddPromoComponent implements OnInit {
       console.debug(data);
       alert('promo agregada');
       // this.toastr.success('You are awesome!', 'Success!');
-      window.location.replace("/");
+      window.location.replace("/madridNow");
     });
   }
 

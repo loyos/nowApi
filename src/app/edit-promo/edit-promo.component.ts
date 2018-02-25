@@ -44,7 +44,7 @@ export class EditPromoComponent implements OnInit {
       console.debug(data);
       alert('promo editada');
       // this.toastr.success('You are awesome!', 'Success!');
-      window.location.replace("/");
+      window.location.replace("/madridNow");
     });
   }
 
