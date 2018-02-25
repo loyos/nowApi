@@ -209,16 +209,6 @@ var appRoutes = [
     { path: 'madridNow', component: __WEBPACK_IMPORTED_MODULE_8__madrid_now_madrid_now_component__["a" /* MadridNowComponent */] },
     { path: 'editPromo/:id', component: __WEBPACK_IMPORTED_MODULE_20__edit_promo_edit_promo_component__["a" /* EditPromoComponent */] },
     { path: 'addPromo', component: __WEBPACK_IMPORTED_MODULE_17__add_promo_add_promo_component__["a" /* AddPromoComponent */] },
-    // { path: 'hero/:id',      component: HeroDetailComponent },
-    // {
-    //   path: 'heroes',
-    //   component: HeroListComponent,
-    //   data: { title: 'Heroes List' }
-    // },
-    { path: '',
-        redirectTo: '/madridNow',
-        pathMatch: 'full'
-    },
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
