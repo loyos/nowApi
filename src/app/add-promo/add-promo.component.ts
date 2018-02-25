@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MadridService } from '../madrid.service';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-add-promo',
@@ -19,7 +21,9 @@ export class AddPromoComponent implements OnInit {
 
   filesToUpload: Array<File> = [];
 
-  constructor(private madridService: MadridService) { }
+  constructor(private madridService: MadridService, public toastr: ToastsManager, vcr: ViewContainerRef) {
+    this.toastr.setRootViewContainerRef(vcr);
+   }
 
   ngOnInit() {
   }
@@ -42,6 +46,9 @@ export class AddPromoComponent implements OnInit {
     formData.append("category", this.promo.category);
     this.madridService.addPromo(formData).subscribe(data => {
       console.debug(data);
+      alert('promo agregada');
+      // this.toastr.success('You are awesome!', 'Success!');
+      window.location.replace("/");
     });
   }
 

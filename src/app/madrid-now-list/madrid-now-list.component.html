@@ -9,8 +9,8 @@
       <p matLine class="demo-2"> Categoría {{promo.category}} </p>
       <p matLine class="demo-2"> {{promo.day}} </p>
       <span class="example-spacer"></span>
-    <mat-icon color="primary" >edit</mat-icon>
-    <mat-icon color="primary">delete</mat-icon>
+    <mat-icon color="primary" routerLink="/editPromo/{{promo._id}}" class="clickable">edit</mat-icon>
+    <mat-icon color="primary" class="clickable" (click)="deletePromo(promo._id);">delete</mat-icon>
     </mat-list-item>
   </mat-list>
 </mat-card>

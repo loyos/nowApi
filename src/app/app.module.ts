@@ -11,6 +11,8 @@ import { MadridNowComponent } from './madrid-now/madrid-now.component';
 import { MadridNowListComponent } from './madrid-now-list/madrid-now-list.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {ViewContainerRef} from '@angular/core';
 
 // angular material
 
@@ -21,9 +23,11 @@ import {MatButtonModule} from '@angular/material/button';
 import { AddPromoComponent } from './add-promo/add-promo.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material';
+import { EditPromoComponent } from './edit-promo/edit-promo.component';
 
 const appRoutes: Routes = [
   { path: 'madridNow', component: MadridNowComponent },
+  { path: 'editPromo/:id', component: EditPromoComponent },
   { path: 'addPromo', component: AddPromoComponent },
   // { path: 'hero/:id',      component: HeroDetailComponent },
   // {
@@ -45,6 +49,7 @@ const appRoutes: Routes = [
     MadridNowComponent,
     MadridNowListComponent,
     AddPromoComponent,
+    EditPromoComponent,
     
   ],
   imports: [
@@ -52,6 +57,7 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
     ),
+    ToastModule.forRoot(),
     HttpClientModule,
     BrowserModule,
     MatListModule,
@@ -63,7 +69,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatInputModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [MadridService],
   bootstrap: [AppComponent]

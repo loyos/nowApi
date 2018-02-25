@@ -33,11 +33,12 @@
         </mat-select>
       </mat-form-field>
   </div>
-  Selecciona una imagen
-    <br>
-  <input id="cin" name="cin" type="file" (change)="fileChangeEvent($event)" placeholder="Upload a file..." multiple/>
+  
+  <mat-form-field>
+      <input matInput placeholder="img, si ya existe en la bd" [(ngModel)]="promo.img">
+    </mat-form-field>
 <br>
 <br>
 <br>
-  <button mat-raised-button color="accent" (click)="addPromo()">Agregar Promo</button>
+  <button mat-raised-button color="accent" (click)="editPromo()">Editar Promo</button>
 </mat-card>

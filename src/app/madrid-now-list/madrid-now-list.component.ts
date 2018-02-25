@@ -14,10 +14,26 @@ export class MadridNowListComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.getAllPromos();
+  }
+
+  getAllPromos(){
     this.madridService.getPromos().subscribe(data => {
       console.log('data: ', data);
       this.promos = data;
     });
+  }
+
+  deletePromo(id){
+    var a = confirm("Seguro?");
+    if(a== true){
+      this.madridService.deletePromo(id).subscribe(data => {
+        console.log('eliminada la promo', data);
+        alert("eliminada la promo");
+        this.getAllPromos();
+      });
+    }
+
   }
 
 }
