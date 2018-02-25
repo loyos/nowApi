@@ -35,10 +35,10 @@ const appRoutes: Routes = [
   //   component: HeroListComponent,
   //   data: { title: 'Heroes List' }
   // },
-  { path: '',
-    redirectTo: '/madridNow',
-    pathMatch: 'full'
-  },
+  // { path: '',
+  //   redirectTo: '/madridNow',
+  //   pathMatch: 'full'
+  // },
   // { path: '**', component: PageNotFoundComponent }
 ];
 
