@@ -20,8 +20,57 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
+
 var routes = require('./api/routes/madridRoutes'); //importing route
 routes(app); //register the route
+
+// require('./config/config');
+
+// passport 
+
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
+
+  app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    console.log("entrando a local strategy");
+
+    return done(null, {name: 'loy'});
+
+    // User.findOne({ username: username }, function(err, user) {
+    //   if (err) { return done(err); }
+    //   if (!user) {
+    //     return done(null, false, { message: 'Incorrect username.' });
+    //   }
+    //   if (!user.validPassword(password)) {
+    //     return done(null, false, { message: 'Incorrect password.' });
+    //   }
+    //   return done(null, user);
+    // });
+  }
+));
+
+// app.post('/login', function (req, res, next) {
+//   console.log("entrando a /login middleware post");
+// });
+
+app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/pupu' }),
+  function(req, res) {
+    console.log("entrando en authenticate post");
+    res.redirect('/madridNow');
+  });
+
+// app.post('/login',
+//   passport.authenticate('local', { successRedirect: '/',
+//                                   failureRedirect: '/nowMadrid',
+//                                   failureFlash: true })
+// );
+
+//  end passport 
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));

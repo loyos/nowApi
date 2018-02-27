@@ -24,21 +24,23 @@ import { AddPromoComponent } from './add-promo/add-promo.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material';
 import { EditPromoComponent } from './edit-promo/edit-promo.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   { path: 'madridNow', component: MadridNowComponent },
   { path: 'editPromo/:id', component: EditPromoComponent },
   { path: 'addPromo', component: AddPromoComponent },
+  { path: 'login', component: LoginComponent },
   // { path: 'hero/:id',      component: HeroDetailComponent },
   // {
   //   path: 'heroes',
   //   component: HeroListComponent,
   //   data: { title: 'Heroes List' }
   // },
-  // { path: '',
-  //   redirectTo: '/madridNow',
-  //   pathMatch: 'full'
-  // },
+  { path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
   // { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -50,6 +52,7 @@ const appRoutes: Routes = [
     MadridNowListComponent,
     AddPromoComponent,
     EditPromoComponent,
+    LoginComponent,
     
   ],
   imports: [

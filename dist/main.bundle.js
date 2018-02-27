@@ -20,7 +20,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /***/ "./src/app/add-promo/add-promo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color='primary'>Add Promo</mat-toolbar>\n<mat-card>\n  <a routerLink=\"/madridNow\"> Volver </a>\n  <br>\n  <br>\n<div class=\"example-container\">\n    <mat-form-field>\n      <input matInput placeholder=\"name\" [(ngModel)]=\"promo.name\">\n    </mat-form-field>\n  \n    <mat-form-field>\n      <textarea matInput placeholder=\"info de la promo\" [(ngModel)]=\"promo.info\"></textarea>\n    </mat-form-field>\n  \n    <mat-form-field>\n      <mat-select placeholder=\"Category\" [(ngModel)]=\"promo.category\">\n        <mat-option value=\"0\">Destacado</mat-option>\n        <mat-option value=\"1\">Comida</mat-option>\n        <mat-option value=\"2\">Cultura y cine</mat-option>\n        <mat-option value=\"3\">Cosas que hacer</mat-option>\n      </mat-select>\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-select placeholder=\"Day\" [(ngModel)]=\"promo.day\">\n          <mat-option value=\"lunes\">Lunes</mat-option>\n          <mat-option value=\"martes\">Martes</mat-option>\n          <mat-option value=\"miercoles\">Miercoles</mat-option>\n          <mat-option value=\"jueves\">Jueves</mat-option>\n          <mat-option value=\"viernes\">Viernes</mat-option>\n          <mat-option value=\"sabado\">Sábado</mat-option>\n          <mat-option value=\"domingo\">Domingo</mat-option>\n        </mat-select>\n      </mat-form-field>\n  </div>\n  Selecciona una imagen\n    <br>\n  <input id=\"cin\" name=\"cin\" type=\"file\" (change)=\"fileChangeEvent($event)\" placeholder=\"Upload a file...\" multiple/>\n<br>\n<br>\n<br>\n  <button mat-raised-button color=\"accent\" (click)=\"addPromo()\">Agregar Promo</button>\n</mat-card>"
+module.exports = "<mat-toolbar color='primary'>Add Promo</mat-toolbar>\r\n<mat-card>\r\n  <a routerLink=\"/madridNow\"> Volver </a>\r\n  <br>\r\n  <br>\r\n<div class=\"example-container\">\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"name\" [(ngModel)]=\"promo.name\">\r\n    </mat-form-field>\r\n  \r\n    <mat-form-field>\r\n      <textarea matInput placeholder=\"info de la promo\" [(ngModel)]=\"promo.info\"></textarea>\r\n    </mat-form-field>\r\n  \r\n    <mat-form-field>\r\n      <mat-select placeholder=\"Category\" [(ngModel)]=\"promo.category\">\r\n        <mat-option value=\"0\">Destacado</mat-option>\r\n        <mat-option value=\"1\">Comida</mat-option>\r\n        <mat-option value=\"2\">Cultura y cine</mat-option>\r\n        <mat-option value=\"3\">Cosas que hacer</mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n\r\n    <mat-form-field>\r\n        <mat-select placeholder=\"Day\" [(ngModel)]=\"promo.day\">\r\n          <mat-option value=\"lunes\">Lunes</mat-option>\r\n          <mat-option value=\"martes\">Martes</mat-option>\r\n          <mat-option value=\"miercoles\">Miercoles</mat-option>\r\n          <mat-option value=\"jueves\">Jueves</mat-option>\r\n          <mat-option value=\"viernes\">Viernes</mat-option>\r\n          <mat-option value=\"sabado\">Sábado</mat-option>\r\n          <mat-option value=\"domingo\">Domingo</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n  </div>\r\n  Selecciona una imagen\r\n    <br>\r\n  <input id=\"cin\" name=\"cin\" type=\"file\" (change)=\"fileChangeEvent($event)\" placeholder=\"Upload a file...\" multiple/>\r\n<br>\r\n<br>\r\n<br>\r\n  <button mat-raised-button color=\"accent\" (click)=\"addPromo()\">Agregar Promo</button>\r\n</mat-card>"
 
 /***/ }),
 
@@ -177,6 +177,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__angular_material_select__ = __webpack_require__("./node_modules/@angular/material/esm5/select.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__edit_promo_edit_promo_component__ = __webpack_require__("./src/app/edit-promo/edit-promo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__login_login_component__ = __webpack_require__("./src/app/login/login.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -205,10 +206,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
     { path: 'madridNow', component: __WEBPACK_IMPORTED_MODULE_8__madrid_now_madrid_now_component__["a" /* MadridNowComponent */] },
     { path: 'editPromo/:id', component: __WEBPACK_IMPORTED_MODULE_20__edit_promo_edit_promo_component__["a" /* EditPromoComponent */] },
     { path: 'addPromo', component: __WEBPACK_IMPORTED_MODULE_17__add_promo_add_promo_component__["a" /* AddPromoComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_21__login_login_component__["a" /* LoginComponent */] },
+    // { path: 'hero/:id',      component: HeroDetailComponent },
+    // {
+    //   path: 'heroes',
+    //   component: HeroListComponent,
+    //   data: { title: 'Heroes List' }
+    // },
+    { path: '',
+        redirectTo: '/login',
+        pathMatch: 'full'
+    },
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -221,6 +234,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_9__madrid_now_list_madrid_now_list_component__["a" /* MadridNowListComponent */],
                 __WEBPACK_IMPORTED_MODULE_17__add_promo_add_promo_component__["a" /* AddPromoComponent */],
                 __WEBPACK_IMPORTED_MODULE_20__edit_promo_edit_promo_component__["a" /* EditPromoComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__login_login_component__["a" /* LoginComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_6__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: false } // <-- debugging purposes only
@@ -253,7 +267,7 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/edit-promo/edit-promo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color='primary'>Add Promo</mat-toolbar>\n<mat-card>\n  <a routerLink=\"/madridNow\"> Volver </a>\n  <br>\n  <br>\n<div class=\"example-container\">\n    <mat-form-field>\n      <input matInput placeholder=\"name\" [(ngModel)]=\"promo.name\">\n    </mat-form-field>\n  \n    <mat-form-field>\n      <textarea matInput placeholder=\"info de la promo\" [(ngModel)]=\"promo.info\"></textarea>\n    </mat-form-field>\n  \n    <mat-form-field>\n      <mat-select placeholder=\"Category\" [(ngModel)]=\"promo.category\">\n        <mat-option value=\"0\">Destacado</mat-option>\n        <mat-option value=\"1\">Comida</mat-option>\n        <mat-option value=\"2\">Cultura y cine</mat-option>\n        <mat-option value=\"3\">Cosas que hacer</mat-option>\n      </mat-select>\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-select placeholder=\"Day\" [(ngModel)]=\"promo.day\">\n          <mat-option value=\"lunes\">Lunes</mat-option>\n          <mat-option value=\"martes\">Martes</mat-option>\n          <mat-option value=\"miercoles\">Miercoles</mat-option>\n          <mat-option value=\"jueves\">Jueves</mat-option>\n          <mat-option value=\"viernes\">Viernes</mat-option>\n          <mat-option value=\"sabado\">Sábado</mat-option>\n          <mat-option value=\"domingo\">Domingo</mat-option>\n        </mat-select>\n      </mat-form-field>\n  </div>\n  \n  <mat-form-field>\n      <input matInput placeholder=\"img, si ya existe en la bd\" [(ngModel)]=\"promo.img\">\n    </mat-form-field>\n<br>\n<br>\n<br>\n  <button mat-raised-button color=\"accent\" (click)=\"editPromo()\">Editar Promo</button>\n</mat-card>"
+module.exports = "<mat-toolbar color='primary'>Add Promo</mat-toolbar>\r\n<mat-card>\r\n  <a routerLink=\"/madridNow\"> Volver </a>\r\n  <br>\r\n  <br>\r\n<div class=\"example-container\">\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"name\" [(ngModel)]=\"promo.name\">\r\n    </mat-form-field>\r\n  \r\n    <mat-form-field>\r\n      <textarea matInput placeholder=\"info de la promo\" [(ngModel)]=\"promo.info\"></textarea>\r\n    </mat-form-field>\r\n  \r\n    <mat-form-field>\r\n      <mat-select placeholder=\"Category\" [(ngModel)]=\"promo.category\">\r\n        <mat-option value=\"0\">Destacado</mat-option>\r\n        <mat-option value=\"1\">Comida</mat-option>\r\n        <mat-option value=\"2\">Cultura y cine</mat-option>\r\n        <mat-option value=\"3\">Cosas que hacer</mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n\r\n    <mat-form-field>\r\n        <mat-select placeholder=\"Day\" [(ngModel)]=\"promo.day\">\r\n          <mat-option value=\"lunes\">Lunes</mat-option>\r\n          <mat-option value=\"martes\">Martes</mat-option>\r\n          <mat-option value=\"miercoles\">Miercoles</mat-option>\r\n          <mat-option value=\"jueves\">Jueves</mat-option>\r\n          <mat-option value=\"viernes\">Viernes</mat-option>\r\n          <mat-option value=\"sabado\">Sábado</mat-option>\r\n          <mat-option value=\"domingo\">Domingo</mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n  </div>\r\n  \r\n  <mat-form-field>\r\n      <input matInput placeholder=\"img, si ya existe en la bd\" [(ngModel)]=\"promo.img\">\r\n    </mat-form-field>\r\n<br>\r\n<br>\r\n<br>\r\n  <button mat-raised-button color=\"accent\" (click)=\"editPromo()\">Editar Promo</button>\r\n</mat-card>"
 
 /***/ }),
 
@@ -336,6 +350,63 @@ var EditPromoComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/login/login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<form ngNoForm action=\"/login\" method=\"post\">\n  <div>\n      <label>Username:</label>\n      <input type=\"text\" name=\"username\"/>\n  </div>\n  <div>\n      <label>Password:</label>\n      <input type=\"password\" name=\"password\"/>\n  </div>\n  <div>\n      <input type=\"submit\" value=\"Log In\"/>\n  </div>\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.scss":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent(http) {
+        this.http = http;
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent.prototype.login = function () {
+        console.log("entrando a login");
+        this.http.post('/login', 'Loy');
+    };
+    LoginComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-login',
+            template: __webpack_require__("./src/app/login/login.component.html"),
+            styles: [__webpack_require__("./src/app/login/login.component.scss")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], LoginComponent);
+    return LoginComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/madrid-now-list/madrid-now-list.component.css":
 /***/ (function(module, exports) {
 
@@ -346,7 +417,7 @@ module.exports = ".clickable{\r\n    cursor: pointer;\r\n}\r\n.clickable:hover{\
 /***/ "./src/app/madrid-now-list/madrid-now-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n  <mat-list>\n    <h3 matSubheader style=\"float: left;\">Promos</h3>  <button style=\"float: right; font-size: 34px;\"  routerLink=\"/addPromo\" mat-fab color=\"accent\">+</button>\n    \n    <mat-list-item style=\"clear: both;\" *ngFor=\"let promo of promos\">\n      <mat-icon color=\"primary\" matListIcon>card_giftcard</mat-icon>\n      <h4 matLine>{{promo.name}}</h4>\n      <p matLine class=\"demo-2\"> {{promo.info}} </p>\n      <p matLine class=\"demo-2\"> Categoría {{promo.category}} </p>\n      <p matLine class=\"demo-2\"> {{promo.day}} </p>\n      <span class=\"example-spacer\"></span>\n    <mat-icon color=\"primary\" routerLink=\"/editPromo/{{promo._id}}\" class=\"clickable\">edit</mat-icon>\n    <mat-icon color=\"primary\" class=\"clickable\" (click)=\"deletePromo(promo._id);\">delete</mat-icon>\n    </mat-list-item>\n  </mat-list>\n</mat-card>"
+module.exports = "<mat-card>\r\n  <mat-list>\r\n    <h3 matSubheader style=\"float: left;\">Promos</h3>  <button style=\"float: right; font-size: 34px;\"  routerLink=\"/addPromo\" mat-fab color=\"accent\">+</button>\r\n    \r\n    <mat-list-item style=\"clear: both;\" *ngFor=\"let promo of promos\">\r\n      <mat-icon color=\"primary\" matListIcon>card_giftcard</mat-icon>\r\n      <h4 matLine>{{promo.name}}</h4>\r\n      <p matLine class=\"demo-2\"> {{promo.info}} </p>\r\n      <p matLine class=\"demo-2\"> Categoría {{promo.category}} </p>\r\n      <p matLine class=\"demo-2\"> {{promo.day}} </p>\r\n      <span class=\"example-spacer\"></span>\r\n    <mat-icon color=\"primary\" routerLink=\"/editPromo/{{promo._id}}\" class=\"clickable\">edit</mat-icon>\r\n    <mat-icon color=\"primary\" class=\"clickable\" (click)=\"deletePromo(promo._id);\">delete</mat-icon>\r\n    </mat-list-item>\r\n  </mat-list>\r\n</mat-card>"
 
 /***/ }),
 
@@ -418,7 +489,7 @@ module.exports = ""
 /***/ "./src/app/madrid-now/madrid-now.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color='primary'>Madrid Now</mat-toolbar>\n\n<app-madrid-now-list></app-madrid-now-list>\n"
+module.exports = "<mat-toolbar color='primary'>Madrid Now</mat-toolbar>\r\n\r\n<app-madrid-now-list></app-madrid-now-list>\r\n"
 
 /***/ }),
 
