@@ -7,6 +7,8 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   path = require('path');
 
+  var session = require("express-session");
+  app.use(session({ secret: "cats" }));
   app.use(cors());
   
 // mongoose instance connection url connection
@@ -37,8 +39,13 @@ app.use(passport.session());
 passport.use(new LocalStrategy(
   function(username, password, done) {
     console.log("entrando a local strategy");
-
-    return done(null, {name: 'loy'});
+    console.log(username);
+    if(username == 'loy'){
+      return done(null, {name: 'loy'});
+    }else{
+      return done(null, false, { message: 'Incorrect username.' });
+    }
+    
 
     // User.findOne({ username: username }, function(err, user) {
     //   if (err) { return done(err); }
@@ -53,27 +60,32 @@ passport.use(new LocalStrategy(
   }
 ));
 
-// app.post('/login', function (req, res, next) {
-//   console.log("entrando a /login middleware post");
-// });
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+app.use(function (req, res, next) {
+  console.log('req.user', req.user );
+  next();
+});
+
+
 
 app.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/pupu' }),
+  passport.authenticate('local'),
   function(req, res) {
-    console.log("entrando en authenticate post");
+    console.log("entrando en authenticate post", req);
     res.redirect('/madridNow');
   });
-
-// app.post('/login',
-//   passport.authenticate('local', { successRedirect: '/',
-//                                   failureRedirect: '/nowMadrid',
-//                                   failureFlash: true })
-// );
 
 //  end passport 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+    res.sendFile(path.join(__dirname, 'dist/index.html'));  
 });
 
 
