@@ -28,12 +28,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 var routes = require('./api/routes/madridRoutes'); //importing routes
 routes(app); //register the route
 
-// all other routes to.. 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));  
-});
-
-
 app.listen(port);
 
 

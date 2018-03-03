@@ -112,6 +112,11 @@ module.exports = function (app) {
     }
   });
 
+  // all other routes to.. 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));  
+});
+
   // ROUTES PROTECTED BY TOKEN
 
   app.route('/promos')
