@@ -211,7 +211,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var appRoutes = [
-    { path: 'madridNow', canActivate: [__WEBPACK_IMPORTED_MODULE_22__guards_guard__["a" /* AuthGuard */]], component: __WEBPACK_IMPORTED_MODULE_8__madrid_now_madrid_now_component__["a" /* MadridNowComponent */] },
+    { path: 'madridNow', pathMatch: 'full', canActivate: [__WEBPACK_IMPORTED_MODULE_22__guards_guard__["a" /* AuthGuard */]], component: __WEBPACK_IMPORTED_MODULE_8__madrid_now_madrid_now_component__["a" /* MadridNowComponent */] },
     { path: 'editPromo/:id', component: __WEBPACK_IMPORTED_MODULE_20__edit_promo_edit_promo_component__["a" /* EditPromoComponent */] },
     { path: 'addPromo', component: __WEBPACK_IMPORTED_MODULE_17__add_promo_add_promo_component__["a" /* AddPromoComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_21__login_login_component__["a" /* LoginComponent */] },
@@ -224,6 +224,10 @@ var appRoutes = [
     { path: '',
         redirectTo: '/login',
         pathMatch: 'full'
+    },
+    // { path: '**', component: PageNotFoundComponent }
+    { path: '**',
+        redirectTo: '/madridNow'
     },
 ];
 var AppModule = /** @class */ (function () {

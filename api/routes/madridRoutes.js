@@ -1,5 +1,5 @@
 'use strict';
-module.exports = function (app) {
+module.exports = function (app, path) {
   var madrid = require('../controllers/madridController');
   var multer = require('multer');
   var User = require('../models/user');
@@ -83,7 +83,11 @@ module.exports = function (app) {
   app.route('/promos/:promoId')
     .get(madrid.read_a_task);
 
-
+  // all other routes to.. 
+  app.get('*', (req, res) => {
+    console.log("sddsf: ", path);
+    res.sendFile(path + '/dist/index.html');
+  });
 
   // PROTECTED ROUTES FROM HERE  
 
@@ -111,11 +115,6 @@ module.exports = function (app) {
       });
     }
   });
-
-  // all other routes to.. 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));  
-});
 
   // ROUTES PROTECTED BY TOKEN
 

@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 
 var routes = require('./api/routes/madridRoutes'); //importing routes
-routes(app); //register the route
+routes(app, __dirname); //register the route
 
 app.listen(port);
 

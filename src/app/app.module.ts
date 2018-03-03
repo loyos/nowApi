@@ -28,7 +28,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/guard';
 
 const appRoutes: Routes = [
-  { path: 'madridNow', canActivate: [AuthGuard], component: MadridNowComponent },
+  { path: 'madridNow', pathMatch: 'full', canActivate: [AuthGuard], component: MadridNowComponent },
   { path: 'editPromo/:id', component: EditPromoComponent },
   { path: 'addPromo', component: AddPromoComponent },
   { path: 'login', component: LoginComponent },
@@ -43,6 +43,9 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   // { path: '**', component: PageNotFoundComponent }
+  { path: '**',
+    redirectTo: '/madridNow'
+  },
 ];
 
 
