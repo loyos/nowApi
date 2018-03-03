@@ -7,11 +7,20 @@ export class MadridService {
   prod;
   dev;
   url;
+  token;
 
   constructor(private http: HttpClient) { 
     this.prod = 'http://tumango.es/promos/';
     this.dev = 'http://localhost:3000/promos/';
     this.url = this.prod;
+  }
+
+  setToken(t){
+    this.token= t;
+  }
+
+  getToken(){
+    return this.token;
   }
 
   getPromos(){

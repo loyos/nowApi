@@ -26,6 +26,7 @@ export class AddPromoComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log('get token: ', this.madridService.getToken());
   }
 
   fileChangeEvent(fileInput: any) {

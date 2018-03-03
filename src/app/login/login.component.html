@@ -1,13 +1,13 @@
-<form ngNoForm action="/login" method="post">
+<form>
   <div>
       <label>Username:</label>
-      <input type="text" name="username"/>
+      <input type="text" name="username"[(ngModel)]="user.username"/>
   </div>
   <div>
       <label>Password:</label>
-      <input type="password" name="password"/>
+      <input type="password" name="password" [(ngModel)]="user.password"/>
   </div>
   <div>
-      <input type="submit" value="Log In"/>
+      <button (click)="login();"> Login </button>
   </div>
 </form>
