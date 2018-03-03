@@ -25,9 +25,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material';
 import { EditPromoComponent } from './edit-promo/edit-promo.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/guard';
 
 const appRoutes: Routes = [
-  { path: 'madridNow', component: MadridNowComponent },
+  { path: 'madridNow', canActivate: [AuthGuard], component: MadridNowComponent },
   { path: 'editPromo/:id', component: EditPromoComponent },
   { path: 'addPromo', component: AddPromoComponent },
   { path: 'login', component: LoginComponent },
@@ -74,7 +75,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule,
   ],
-  providers: [MadridService],
+  providers: [MadridService,AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,16 +15,26 @@ export class MadridService {
     this.url = this.prod;
   }
 
+  login(user){
+    return this.http.post('http://tumango.es/login', user);
+  }
+
   setToken(t){
     this.token= t;
+    localStorage.setItem('token', t);
   }
 
   getToken(){
+    this.token = localStorage.getItem('token');
+    console.log('token: ', this.token);
     return this.token;
   }
 
+  logout(){
+    localStorage.clear();
+  }
+
   getPromos(){
-    // return this.http.get('http://tumango.es/promos');
     return this.http.get(this.url);
   }
 
@@ -34,16 +44,16 @@ export class MadridService {
 
   addPromo(data){
     console.debug('data: ', data);
-    return this.http.post(this.url, data);
+    return this.http.post(this.url+'?token='+this.token, data);
   }
 
   editPromo(data, id){
     console.debug('data: ', data);
-    return this.http.put(this.url + id, data);
+    return this.http.put(this.url + id+ '?token='+this.token, data);
   }
 
   deletePromo(id){
-    return this.http.delete(this.url +id);
+    return this.http.delete(this.url +id+ '?token='+this.token);
   }
 
   getByCatAndName(){
