@@ -26,6 +26,7 @@ import {MatInputModule} from '@angular/material';
 import { EditPromoComponent } from './edit-promo/edit-promo.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/guard';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 const appRoutes: Routes = [
   { path: 'madridNow', pathMatch: 'full', canActivate: [AuthGuard], component: MadridNowComponent },
@@ -77,6 +78,7 @@ const appRoutes: Routes = [
     MatInputModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatCheckboxModule
   ],
   providers: [MadridService,AuthGuard ],
   bootstrap: [AppComponent]

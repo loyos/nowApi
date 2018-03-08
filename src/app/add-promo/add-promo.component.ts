@@ -10,6 +10,10 @@ import { ViewContainerRef } from '@angular/core';
 })
 export class AddPromoComponent implements OnInit {
 
+  checked = [];
+  featured;
+  a = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
+
   promo = {
     name: '',
     info: '',
@@ -23,7 +27,7 @@ export class AddPromoComponent implements OnInit {
 
   constructor(private madridService: MadridService, public toastr: ToastsManager, vcr: ViewContainerRef) {
     this.toastr.setRootViewContainerRef(vcr);
-   }
+  }
 
   ngOnInit() {
     console.log('get token: ', this.madridService.getToken());
@@ -33,12 +37,22 @@ export class AddPromoComponent implements OnInit {
     this.filesToUpload = <Array<File>>fileInput.target.files;
     //this.product.photo = fileInput.target.files[0]['name'];
   }
-
+   
   addPromo() {
+    this.promo.day = '';
 
     const formData: any = new FormData();
     const files: Array<File> = this.filesToUpload;
     console.log(files);
+
+    this.checked.forEach((data, i) => {
+      if (this.checked[i]) {
+        this.promo.day = this.a[i] + ',' +this.promo.day;
+      }
+    })
+
+    console.log("this: ", this.promo.day);
+
 
     formData.append("promoImage", files[0]);
     formData.append("name", this.promo.name);
