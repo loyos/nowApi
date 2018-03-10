@@ -12,12 +12,12 @@ export class MadridService {
   constructor(private http: HttpClient) { 
     this.prod = 'http://tumango.es/promos/';
     this.dev = 'http://localhost:3000/promos/';
-    this.url = this.dev;
+    this.url = this.prod;
   }
 
   login(user){
-    // return this.http.post('http://tumango.es/login', user);
-    return this.http.post('http://localhost:3000/login', user);
+    return this.http.post('http://tumango.es/login', user);
+    // return this.http.post('http://localhost:3000/login', user);
   }
 
   setToken(t){
