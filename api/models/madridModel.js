@@ -18,6 +18,9 @@ var PromoSchema = new Schema({
   },
   category:{
     type: String
+  },
+  featured:{
+    type: Boolean
   }
 });
 

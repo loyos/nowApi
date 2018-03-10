@@ -18,6 +18,9 @@ export class EditPromoComponent implements OnInit {
     img: ''
   };
 
+  checked = [];
+  a = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
+
   private sub: any;
   id: String;
 
@@ -36,10 +39,34 @@ export class EditPromoComponent implements OnInit {
       console.debug(data);
       this.sub = data;
       this.promo = this.sub;
+      this.setDays(this.promo.day.split(','));
     });
   }
 
+  setDays(days){
+    console.debug("days: ", days);
+    days.forEach((el,i) => {
+      this.a.forEach((e, j) => {
+        if(el == e){
+          this.checked[j] = true;
+        }else{
+          this.checked[j] = this.checked[j] == true ? true : false;
+        }
+      });
+    });
+    console.debug("this.checked: ", this.checked);
+  }
+
   editPromo() {
+    this.promo.day = "";
+    this.checked.forEach((data, i) => {
+      if (this.checked[i]) {
+        this.promo.day = this.a[i] + ',' +this.promo.day;
+      }
+    });
+
+    console.log("this.promo.day: ", this.promo.day);
+
     this.madridService.editPromo(this.promo, this.promo._id).subscribe(data => {
       console.debug(data);
       alert('promo editada');

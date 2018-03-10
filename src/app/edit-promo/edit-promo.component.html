@@ -14,24 +14,26 @@
   
     <mat-form-field>
       <mat-select placeholder="Category" [(ngModel)]="promo.category">
-        <mat-option value="0">Destacado</mat-option>
+        <!-- <mat-option value="0">Destacado</mat-option> -->
         <mat-option value="1">Comida</mat-option>
         <mat-option value="2">Cultura y cine</mat-option>
         <mat-option value="3">Cosas que hacer</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
-        <mat-select placeholder="Day" [(ngModel)]="promo.day">
-          <mat-option value="lunes">Lunes</mat-option>
-          <mat-option value="martes">Martes</mat-option>
-          <mat-option value="miercoles">Miercoles</mat-option>
-          <mat-option value="jueves">Jueves</mat-option>
-          <mat-option value="viernes">Viernes</mat-option>
-          <mat-option value="sabado">Sábado</mat-option>
-          <mat-option value="domingo">Domingo</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <span>Day(s): </span> <br>
+    <mat-checkbox class="example-margin" [(ngModel)]="checked[0]">Lunes</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="checked[1]">Martes</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="checked[2]">Miercoles</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="checked[3]">Jueves</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="checked[4]">Viernes</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="checked[5]">Sábado</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="checked[6]">Domingo</mat-checkbox>
+<br>
+<br>
+
+<mat-checkbox class="example-margin" [(ngModel)]="promo.featured">Featured</mat-checkbox>
+<br><br>
   </div>
   
   <mat-form-field>

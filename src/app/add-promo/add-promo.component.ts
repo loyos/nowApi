@@ -11,7 +11,6 @@ import { ViewContainerRef } from '@angular/core';
 export class AddPromoComponent implements OnInit {
 
   checked = [];
-  featured;
   a = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
 
   promo = {
