@@ -18,7 +18,8 @@ export class AddPromoComponent implements OnInit {
     info: '',
     day: '',
     category: '',
-    promoImage: ''
+    promoImage: '',
+    featured: false,
     // img: ''
   };
 
@@ -34,9 +35,9 @@ export class AddPromoComponent implements OnInit {
 
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>>fileInput.target.files;
-    //this.product.photo = fileInput.target.files[0]['name'];
+    // this.product.photo = fileInput.target.files[0]['name'];
   }
-   
+
   addPromo() {
     this.promo.day = '';
 
@@ -50,7 +51,7 @@ export class AddPromoComponent implements OnInit {
       }
     })
 
-    console.log("this: ", this.promo.day);
+    console.log('this: ', this.promo.day);
 
 
     formData.append("promoImage", files[0]);

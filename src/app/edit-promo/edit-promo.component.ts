@@ -15,6 +15,7 @@ export class EditPromoComponent implements OnInit {
     info: '',
     day: '',
     category: '',
+    featured: false,
     img: ''
   };
 
